@@ -13,7 +13,7 @@ const CardManagement = () => {
   const toggleFreeze = () => {
     setFrozen(!frozen);
     toast({
-      title: frozen ? 'Card Unfrozen 🔓' : 'Card Frozen 🔒',
+      title: frozen ? 'Card Unfrozen 🔀' : 'Card Frozen 🔒',
       description: frozen ? 'Your card is now active' : 'Your card has been frozen',
     });
   };
@@ -43,7 +43,7 @@ const CardManagement = () => {
             <p className="text-white/60 text-xs mb-1">Card Number</p>
             <div className="flex items-center gap-2">
               <p className="text-white text-lg font-mono tracking-wider">
-                {showNumber ? cardNumber : '•••• •••• •••• 4829'}
+                {showNumber ? cardNumber : '••• ••• ••• 4829'}
               </p>
               <button onClick={copyNumber} className="text-white/40 hover:text-white/70 transition-colors">
                 <Copy className="w-3.5 h-3.5" />
@@ -104,7 +104,7 @@ const CardManagement = () => {
           ].map(d => (
             <div key={d.label} className="flex justify-between text-sm">
               <span className="text-muted-foreground">{d.label}</span>
-              <span className={`font-medium ${(d as any).color || 'text-foreground'}`}>{d.value}</span>
+              <span className={`font-medium ${'color' in d ? d.color : 'text-foreground'}`}>{d.value}</span>
             </div>
           ))}
         </div>
